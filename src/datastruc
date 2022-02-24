@@ -1,0 +1,57 @@
+some_list = ['a', 'b', 'c', 'b']
+duplicates = set([x for x in some_list if some_list.count(x) > 1])
+print(duplicates)
+
+
+valid = set(['yellow', 'red', 'blue', 'green', 'black'])
+input_set = set(['red', 'brown'])
+
+print(input_set.difference(valid))
+
+''' decorator '''
+def a_new_decorator(a_func):
+    def wrapTheFunction():
+        print("I am doing some boring work before executing a_func()")
+        a_func()
+        print("i am doing some boring work after executing a_func()")
+    return wrapTheFunction
+
+def a_function_requiring_decoration():
+    print("I am the function which needs some decoration to remove my foul smell")
+
+a_function_requiring_decoration =  a_new_decorator(a_function_requiring_decoration)
+a_function_requiring_decoration()
+
+
+
+
+
+''' return multiple values '''
+def profile():
+    name = 'Danny'
+    age = 30
+    return name, age
+
+name, age = profile()
+print(name)
+print(age)
+
+# Zip and Unzip
+first_name = ['Joe','Earnst','Thomas','Martin','Charles']
+last_name = ['Schmoe','Ehlmann','Fischer','Walter','Rogan','Green']
+age = [23, 65, 11, 36, 83]
+
+for first_name, last_name, age in zip(first_name, last_name, age):
+    print(f"{first_name} {last_name} is {age} years old")
+
+# unzip
+full_name_list = [('Joe', 'Schmoe', 23),
+                  ('Earnst', 'Ehlmann', 65),
+                  ('Thomas', 'Fischer', 11),
+                  ('Martin', 'Walter', 36),
+                  ('Charles', 'Rogan', 83)]
+
+first_name, last_name, age = list(zip(*full_name_list))
+print(f"first name: {first_name}\nlast name: {last_name} \nage: {age}")
+
+
